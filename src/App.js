@@ -56,6 +56,7 @@ function App() {
   }
 
   console.log("end of the day")
+  console.log("end of the second day");
 
   return (
     <div className="App">
