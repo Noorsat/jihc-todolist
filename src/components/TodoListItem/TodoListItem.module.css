@@ -1,0 +1,41 @@
+.todolist__item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid black;
+    padding-bottom: 12px;
+}
+.todolist__item:last-child{
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.todolist__item_content{
+    display: flex;
+    align-items: center;
+}
+.todolist__item_icons{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.todolist__item_task{
+    margin-left: 8px;
+    color:#0077ff;
+    font-weight: 700;
+}
+.todolist__item_task_done{
+    text-decoration: line-through;
+}
+.todolist__item_input{
+    border: none;
+    outline: none;
+    background: #f4e3e3;
+    padding: 8px 20px;
+    border-radius: 15px;
+    color: red;
+    font-weight: 700;
+    width: 150px;
+    margin-left: 12px;
+}

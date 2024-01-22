@@ -1,23 +1,76 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { TodoListBody } from "./components/TodoListBody/TodoListBody";
+import { TodoListHeader } from "./components/TodoListHeader/TodoListHeader";
 
-function App() {
+function App() { 
+  const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("tasks")) || []);
+  const [searchTasks, setSearchTasks] = useState([]);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks])
+
+  const addTaskHandler = (task) => {
+      setTasks([task, ...tasks]);
+  }
+
+  const doneChangeHandler = (id) => {
+    const doneTask = tasks.filter(task => task.id == id)[0];
+    doneTask.isDone = !doneTask.isDone;
+
+    if (doneTask.isDone){
+      setTasks([...tasks.filter(task => task.id != id), doneTask]);
+    }else{
+      setTasks([...tasks.filter(task => task.id != id), doneTask].sort((a,b) => b.id - a.id));
+    }
+  }  
+
+  const editChangeHandler = (id) => {
+    setTasks(tasks.map(task => {
+      if (task.id == id){
+        task.isEdit = !task.isEdit;
+      }
+      return task;
+    }))
+  }
+
+  const deleteTaskHandler = (id) => {
+    setTasks(tasks.filter(task => task.id != id));
+  }
+
+  const editTextHandler = (id, newTitle) => {
+    setTasks(tasks.map(task => {
+      if (task.id == id){
+        task.title = newTitle;
+      }
+      return task;
+    }))
+  }
+
+  const searchTaskHandler = (title) => {
+    if (title.trim().length > 0){
+      setSearchTasks(tasks.filter(task => task.title.includes(title)));
+    }else{
+      setSearchTasks([]);
+    }
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <TodoListHeader 
+          addTask={addTaskHandler} 
+          searchTaskHandler={searchTaskHandler} 
+          searchTasks={searchTasks}
+        />
+        <TodoListBody 
+          tasks={searchTasks.length > 0 ? searchTasks : tasks}
+          doneChangeHandler={doneChangeHandler}
+          editChangeHandler={editChangeHandler}
+          deleteTaskHandler={deleteTaskHandler}
+          editTextHandler={editTextHandler}
+        />
+      </div>
     </div>
   );
 }

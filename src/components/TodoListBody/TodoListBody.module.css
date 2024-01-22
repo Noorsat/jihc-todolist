@@ -1,0 +1,13 @@
+.todolist__body{
+    background: rgb(200, 143, 143); 
+    padding-top: 16px;
+    padding: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    height: 200px;
+    overflow-y: scroll;
+}
+.todolist__body_warning{
+    color:#0077ff;
+    font-weight: 700;
+}
