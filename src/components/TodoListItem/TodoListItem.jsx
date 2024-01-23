@@ -16,7 +16,7 @@ export const TodoListItem = ({ task, doneChangeHandler, editChangeHandler, delet
             <input type="text" placeholder='Edit task...' value={task.title} onChange={(e) => editTextHandler(task.id, e.target.value)} className={styles.todolist__item_input} />
           </form>
           :
-          <div className={`${styles.todolist__item_task} ${task.isDone ? styles.todolist__item_task_done : ''}`}>
+          <div className={`${styles.todolist__item_task} ${task.isDone ? styles.todolist__item_task_done : ''}`} style={{ color: task.color}}>
             { task.title }
           </div>
         }
@@ -26,7 +26,7 @@ export const TodoListItem = ({ task, doneChangeHandler, editChangeHandler, delet
         <div className={styles.todolist__item_icon} onClick={() => editChangeHandler(task.id)}>
           <EditOutlined 
             style={{
-              color: "#0077ff"
+              color: task.color
             }}
           />
         </div>
@@ -41,7 +41,7 @@ export const TodoListItem = ({ task, doneChangeHandler, editChangeHandler, delet
           >
             <DeleteOutlined 
               style={{
-                color: "#0077ff"
+                color: task.color
               }}
             />
           </Popconfirm>

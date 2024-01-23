@@ -1,0 +1,20 @@
+.header{
+    background: #0077ff;
+    padding: 16px 0;
+}
+.header__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__wrapper ul{
+    display: flex;
+    list-style:none;
+    gap:16px;
+}
+.header__wrapper a{
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+}

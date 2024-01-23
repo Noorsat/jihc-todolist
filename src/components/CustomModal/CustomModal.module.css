@@ -1,0 +1,34 @@
+.filter__items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.filter__item{
+    width: 120px;
+    border:1px solid #0077ff;
+    padding:12px;
+    margin-bottom: 16px;
+    transition: all 0.2s ease-in-out;
+}
+.filter__item_box{
+    width: 40px;
+    height: 12px;
+    margin:0 auto;
+}
+.filter__item_type{
+    text-align: center;
+}
+.filter__item:hover{
+    background: lightcyan;
+    font-weight: 700;
+    transform: scale(1.2);
+}
+.filter__item_selected{
+    width: 120px;
+    border:1px solid #0077ff;
+    padding:12px;
+    margin-bottom: 16px;
+    background: lightcyan;
+    font-weight: 700;
+}

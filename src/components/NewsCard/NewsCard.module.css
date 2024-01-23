@@ -1,0 +1,39 @@
+.news__card{
+    width: 360px;
+    border:1px solid #000;
+}
+.news__card_img img{
+    width: 360px;
+}
+.news__card_img{
+    border-bottom: 1px solid #000;
+    margin-bottom: 16px;
+}
+.news__card_title{
+    font-weight: 700;
+    font-size: 18px;
+    padding: 8px;
+}
+.news__card_description{
+    font-size: 14px;
+    padding:8px;
+    text-decoration: underline;
+    margin-bottom: 12px;
+}
+
+.news__card_author{
+    padding-right: 8px;
+    text-align: right;
+    font-weight: 700;
+    color: grey;
+    border-top:1px solid #000;
+    padding-top: 8px;
+}
+
+.news__card_date{
+    padding-right: 8px;
+    text-align: right;
+    font-weight: 700;
+    color: firebrick;
+    padding-bottom: 8px;
+}
