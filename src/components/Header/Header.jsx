@@ -21,6 +21,11 @@ export const Header = () => {
                         News
                     </NavLink>
                 </li>
+                <li>
+                    <NavLink to="/counter"> 
+                        Counter
+                    </NavLink>
+                </li>
             </ul>
         </div>
     </div>
